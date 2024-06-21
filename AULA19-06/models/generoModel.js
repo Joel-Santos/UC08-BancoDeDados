@@ -1,32 +1,57 @@
 const db = require('../database/db');
 
-class Genero{
-    async listarGeneros(){
-        return new Promise((resolve, reject)=>{
-            db.query('SELECT * FROM GENERO', (error, results) =>{
-                if(error){
+class Genero {
+    async listarGeneros() {
+        return new Promise((resolve, reject) => {
+            db.query('SELECT * FROM GENEROS', (error, results) => {
+                if (error) {
                     console.log('Erro ao executar a consulta sql');
                     reject(error);
-                }else{
-                    resolve(results);  
+                } else {
+                    resolve(results);
                 }
-            }); 
+            });
         });
     }
-    async cadastrarGenero(id, descricao){
-        return new Promise((resolve, reject)=>{
-            db.query(`INSERT INTO GENERO(ID, DESCRICAO) VALUES(${id}, ${descricao})`, (error, results) =>{
-                if(error){
+
+    async cadastrarGenero(descricao) {
+        return new Promise((resolve, reject) => {
+            db.query('INSERT INTO GENEROS (DESCRICAO) VALUES (?)', [descricao], (error, results) => {
+                if (error) {
                     console.log('Erro ao executar o script sql');
                     reject(error);
-                }else{
-                    resolve(results);  
+                } else {
+                    resolve(results);
                 }
-            }); 
+            });
         });
     }
 
+    async atualizarGenero(id, descricao) {
+        return new Promise((resolve, reject) => {
+            db.query('UPDATE GENEROS SET DESCRICAO = ? WHERE ID = ?', [descricao, id], (error, results) => {
+                if (error) {
+                    console.log('Erro ao executar o script sql');
+                    reject(error);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+    }
 
-
+    async deletarGenero(id) {
+        return new Promise((resolve, reject) => {
+            db.query('DELETE FROM GENEROS WHERE ID = ?', [id], (error, results) => {
+                if (error) {
+                    console.log('Erro ao executar o script sql');
+                    reject(error);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+    }
 }
+
 module.exports = new Genero();

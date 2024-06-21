@@ -4,7 +4,7 @@ async function listarFilmes(){
     const filmes = await response.json();
     filmes.forEach(filme => {
         let li = document.createElement('li');
-        li.textContent = `${filme.ID} - ${filme.NOME} - ${filme.ID_GENERO}`;
+        li.textContent = `${filme.id} - ${filme.nome} - ${filme.id_genero}`;
         listaFilmes.appendChild(li);
     });
 }
@@ -14,7 +14,7 @@ async function listarGeneros(){
     const generos = await response.json();
     generos.forEach(genero => {
         let li = document.createElement('li');
-        li.textContent = `${genero.ID} - ${genero.DESCRICAO}`;
+        li.textContent = `${genero.id} - ${genero.descricao}`;
         listaGeneros.appendChild(li);
     });
 }

@@ -12,7 +12,7 @@ app.use(filmeRoutes);
 app.use(generoRoutes);
 
 app.get('/', (req, res) =>{
-    res.sendFile(path.join(__dirname, 'public/html', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public/html', 'index2.html'));
 });
 
 app.listen(port, () =>{
