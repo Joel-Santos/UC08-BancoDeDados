@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Videolocadora</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Videolocadora do JS</h1>
+    </header>
+    <main>
+            <section>
+                <h2>Filmes</h2>
+                <form action="">
+                </form>
+                <ul id="listaFilmes">
+                </ul>
+            </section>
+            <section>
+                <h2>Gêneros</h2>
+                <form action="/generos/cadastro" method="post">
+                    <label for="id">Código do Gênero:</label>
+                    <input type="number" name="id" id="id">
+                    <label for="descricao">Nome do Gênero:</label>
+                    <input type="text" name="descricao" id="descricao">
+                    <input type="submit" value="Cadastrar">
+                </form>
+                <ul id="listaGeneros">
+                </ul>
+            </section>
+    </main>
+    <script src="./js/script.js"></script>
+</body>
+</html>
