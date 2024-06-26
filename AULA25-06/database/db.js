@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password:'usbw',
-    database:'videolocadora'
+    database:'senac'
 });
 
 module.exports = connection;
