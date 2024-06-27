@@ -25,17 +25,19 @@
         <script>
             let formEdit = document.getElementById('editarCurso');
             const courseId = window.location.pathname.split('/').pop();
-            function carregarDados(){
-                    fetch(`/courses/${courseId}`)   
+            async function carregarDados(){
+                     await fetch(`/courses/${courseId}`)   
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Erro ao carregar os dados');
                         }
                          return response.json();
                      })
-                     .then(curso =>{             
-                            document.getElementById('name').value = curso.nome;
-                            document.getElementById('description').value = curso.descricao;       
+                     .then(curso =>{     
+                        console.log(courseId) 
+                        console.log(curso[0].nome)       
+                            document.getElementById('name').value = curso[0].nome;
+                            document.getElementById('description').value = curso[0].descricao;       
                      })
              }
              formEdit.addEventListener('submit', ()=>{

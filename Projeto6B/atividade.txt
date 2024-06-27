@@ -1,0 +1,13 @@
+https://replit.com/join/nboyjzovie-joelsantos4
+
+TAREFA COLABORATIVA DO 6°b
+BANCO DE DADOS (tabelas, conexão)(Arruda)
+Model (alexandre, adriana)
+controller (heberton)
+routes (césar, Yan)
+App (Filipe)
+*Gerenciamento de estoque
+  *Tabelas(Produto, fornecedor)
+    1 fornecedor N produtos
+
+
