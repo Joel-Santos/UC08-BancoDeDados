@@ -72,11 +72,11 @@ class FornecedorModel {
     async updateFornecedor(id, nomefantasia, endereco, cnpj) {
         return new Promise((resolve, reject) => {
             db.query(
-                "UPDATE fornecedor SET cnpj = ?, nomefantasia = ? ,endereco=?, WHERE id = ?",
+                "UPDATE fornecedor SET cnpj = ?, nomefantasia = ? ,endereco=? WHERE id = ?",
                 [cnpj, nomefantasia, endereco,id],
                 (error, results) => {
                     if (error) {
-                        console.log("Erro ao executar o script sql");
+                        console.log("Erro ao executar o script sql", error);
                         reject(error);
                     } else {
                         resolve(results);

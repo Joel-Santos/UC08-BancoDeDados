@@ -60,12 +60,15 @@ class ProdutoModel {
     // Método para atualizar o nome e a descrição de um produto pelo ID fornecido
     async updateProduto(id,nome, estoque,id_fornecedor) {
         return new Promise((resolve, reject) => {
-            db.query('UPDATE produtos SET nome = ?, estoque = ?, id_fornecedor= ?  WHERE id = ?', [nome, estoque, id,id_fornecedor], (error, results) => {
-                if (error) {
+            db.query('UPDATE produtos SET nome = ?, estoque = ?, id_fornecedor= ?  WHERE id = ?', [nome, estoque, id_fornecedor, id], (error, results) => {
+                if (error || results.affectedRows==0) {
                     console.log('Erro ao executar o script sql');
-                    reject(error);
+                    reject(error || "Nenhum registro com essa chave");
                 } else {
-                    resolve(results);
+                    
+                        resolve(results);
+     
+                    
                 }
             });
         });
